@@ -1,0 +1,12 @@
+# Rime dictionary
+# encoding: utf-8
+
+---
+name: three					#內部字典名
+version: "2026.6.1.1"			#字典版本號
+sort: by_weight				#字典词频排序
+use_preset_vocabulary: false	#是否使用八股文
+import_tables:				#加載其它外部碼表
+  - three_character
+  - three_word
+...
