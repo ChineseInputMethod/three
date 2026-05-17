@@ -97,7 +97,20 @@ translator:
   spelling_hints: 16
   preedit_format:					#上屛碼自定義
   comment_format:				# 提示碼自定義
-    - "xform/^.*$//"
+    - xform/丨/g0/
+    - xform/一/h1/
+    - xform/乙/m2/
+    - xform/丿/p3/
+    - xform/丶/t4/
+    - xform/(^|[ '])([^[]+)[[]([a-z;]\d+)(.*)/$1$2$3/
+    - xform/g0/丨/
+    - xform/h1/一/
+    - xform/m2/乙/
+    - xform/p3/丿/
+    - xform/t4/丶/
+    - xform/$/〕/
+    - xform/^/〔/
+    - xform/([nljqxy])v/$1ü/			# 這樣纔是漢語拼音 :-)
 
 custom_phrase:				#自定义短语库，该文件一般为多个方案共享。
   dictionary: ""				#翻譯器將調取此字典文件
