@@ -7,7 +7,7 @@
 schema:
   name: 三拼输入法				# 方案名称
   schema_id: three				# 方案标识符
-  version: "2026.6.1.1"				# 版本号
+  version: "2026.9.1.1"				# 版本号
   author:
     - www.shurufa.org				# 作者
   dependencies:
@@ -93,9 +93,22 @@ speller:
 
 translator:
   dictionary: three				# 設定 script_translator 使用的詞典名
-  prism: three					# prism 要以本輸入方案的名稱來命名，以免把朙月拼音的拼寫映射表覆蓋掉
+  prism: three				# prism 要以本輸入方案的名稱來命名，以免把朙月拼音的拼寫映射表覆蓋掉
   spelling_hints: 16
-  preedit_format:					#上屛碼自定義
+  preedit_format:				#上屛碼自定義
+    - xform/(^|[ '])o(\w)/$1O$2/			# 零聲母先改爲0，以方便後面的轉換
+    - xform/([bpmdtnlgkhv;azcswuO])l/$1ai/	# 雙拼第二碼轉換爲韻母
+    - xform/([bpmdtnlgkhv;arzcsyiO])s/$1ao/	# [bpmfdtnlgkhjqxv;arzcsywiu0]
+    - xform/([bpmfdtnlgkhv;arzcswO])n/$1eng/	# [bpmfdtnlgkhjqxv;arzcsywiu0]
+    - xform/([bpmfdtnlgkhv;arzcsywiuO])d/$1an/	# [bpmfdtnlgkhjqxv;arzcsywiu0]
+    - xform/([bpmfdtnlgkhv;arzcsywiuO])f/$1ang/	# [bpmfdtnlgkhjqxv;arzcsywiu0]
+    - xform/([bpmdtnljqxy])j/$1ing/		# [bpmfdtnlgkhjqxv;arzcsywiu0]
+    - xform/([dtnlgkhv;rzcsyi])k/$1ong/		# [bpmfdtnlgkhjqxv;arzcsywiu0]
+    - "xform/(^|[ '])v/$1zh/"  # 復原聲母，音節開始處的雙拼字母a改寫爲zh；其他位置的才真正是a
+    - "xform/(^|[ ']);/$1ch/"
+    - "xform/(^|[ '])a/$1sh/"
+    - xform/O(\w)/$1/          # 好了，現在可以把零聲母拿掉啦
+    - xform/([nl])v/$1ü/   # 這樣纔是漢語拼音 :-)
   comment_format:				# 提示碼自定義
     - "xform/^.*$//"
 

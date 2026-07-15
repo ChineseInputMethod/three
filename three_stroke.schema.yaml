@@ -7,7 +7,7 @@
 schema:
   name: 笔画反查			# 方案名称
   schema_id: three_stroke	# 方案标识符
-  version: "2026.6.1.1"		# 版本号
+  version: "2026.9.1.1"		# 版本号
   author:
     - www.shurufa.org		# 作者
   description:  |			# 描述信息
