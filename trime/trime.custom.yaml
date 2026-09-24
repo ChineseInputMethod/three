@@ -1,0 +1,4 @@
+#trime.custom.yaml
+patch:
+  "preset_keyboards/three":
+    __include: trime.yaml:preset_keyboards/qwerty_
